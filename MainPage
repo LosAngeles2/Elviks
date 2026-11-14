@@ -295,7 +295,12 @@
         <h1>Общайся без границ</h1>
         <p>Современный и безопасный мессенджер для твоих самых важных разговоров. Скачай приложение для Windows и будь на связи всегда.</p>
         
-    
+        <!-- КНОПКА СКАЧИВАНИЯ (проверь имя файла) -->
+        <a href="MauiApp1_1.1.2.0_x64.msix" download class="download-btn">
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Скачать для Windows
+        </a>
+
         <div class="version-info">Версия 1.1.2.0 • Windows 10/11 (64-bit)</div>
     </section>
 
@@ -315,8 +320,8 @@
     <footer>
         <p>&copy; 2026 Elviks. Все права защищены.</p>
         <p style="margin-top: 10px;">
-            <a href="https://losangeles2.github.io/privacy-policy/">Политика конфиденциальности</a> • 
-            <a href="https://losangeles2.github.io/privacy-policy/user-agreement.html">Пользовательское соглашение</a>
+            <a href="https://losangeles2.github.io/Elviks/">Политика конфиденциальности</a> • 
+            <a href="https://losangeles2.github.io/Elviks/user-agreement.html">Пользовательское соглашение</a>
         </p>
     </footer>
 
