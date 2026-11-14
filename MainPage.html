@@ -103,25 +103,40 @@
             gap: 10px;
         }
 
+        /* Новая иконка */
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* Делаем круглой */
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
         }
 
         /* Главный экран */
         .hero {
             text-align: center;
-            padding: 100px 20px 60px;
+            padding: 80px 20px 60px;
             max-width: 800px;
             z-index: 10;
+        }
+
+        /* Большая иконка в центре */
+        .hero-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 40px var(--primary-glow);
+            margin-bottom: 30px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         .hero h1 {
@@ -271,6 +286,7 @@
             .hero p { font-size: 16px; }
             .download-btn { width: 100%; padding: 16px 20px; }
             .instruction-card { padding: 20px; }
+            .hero-icon { width: 120px; height: 120px; }
         }
     </style>
 </head>
@@ -285,17 +301,21 @@
     <!-- Шапка -->
     <header>
         <div class="logo">
-            <div class="logo-icon">E</div>
+            <!-- Иконка в шапке -->
+            <img src="logo.png" alt="Elviks" class="logo-icon">
             Elviks
         </div>
     </header>
 
     <!-- Главный экран -->
     <section class="hero">
+        <!-- Большая иконка в центре -->
+        <img src="logo.png" alt="Elviks Logo" class="hero-icon">
+        
         <h1>Общайся без границ</h1>
         <p>Современный и безопасный мессенджер для твоих самых важных разговоров. Скачай приложение для Windows и будь на связи всегда.</p>
         
-        <!-- КНОПКА СКАЧИВАНИЯ (проверь имя файла) -->
+        <!-- КНОПКА СКАЧИВАНИЯ -->
         <a href="MauiApp1_1.1.2.0_x64.msix" download class="download-btn">
             <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
             Скачать для Windows
@@ -320,8 +340,9 @@
     <footer>
         <p>&copy; 2026 Elviks. Все права защищены.</p>
         <p style="margin-top: 10px;">
-            <a href="https://losangeles2.github.io/Elviks/">Политика конфиденциальности</a> • 
-            <a href="https://losangeles2.github.io/Elviks/user-agreement.html">Пользовательское соглашение</a>
+            <!-- Ссылки, как ты просил -->
+            <a href="https://losangeles2.github.io/privacy-policy/">Политика конфиденциальности</a> • 
+            <a href="https://losangeles2.github.io/user-agreement/">Пользовательское соглашение</a>
         </p>
     </footer>
 
