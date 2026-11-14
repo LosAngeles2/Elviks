@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать Elviks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg-color: #0f0a1a;
+            --primary: #8B5CF6;
+            --primary-glow: rgba(139, 92, 246, 0.4);
+            --secondary: #C084FC;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --card-bg: rgba(45, 27, 78, 0.4);
+            --border: rgba(139, 92, 246, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Анимированный фон */
+        .background-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: move 20s infinite alternate;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            bottom: -50px;
+            right: -50px;
+            animation-delay: -5s;
+        }
+
+        @keyframes move {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 100px) scale(1.2); }
+        }
+
+        /* Шапка */
+        header {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 10, 26, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Главный экран */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #fff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Кнопка скачивания */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 18px 40px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px var(--primary-glow);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--primary-glow);
+        }
+
+        .download-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .version-info {
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Блок с инструкцией */
+        .instruction-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 20px;
+            max-width: 700px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .instruction-card h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instruction-card ol {
+            list-style: none;
+            counter-reset: my-counter;
+        }
+
+        .instruction-card li {
+            counter-increment: my-counter;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 50px;
+            color: var(--text-muted);
+        }
+
+        .instruction-card li::before {
+            content: counter(my-counter);
+            position: absolute;
+            left: 0;
+            top: -2px;
+            width: 30px;
+            height: 30px;
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            border: 1px solid var(--primary);
+        }
+
+        .instruction-card b {
+            color: #fff;
+        }
+
+        /* Футер */
+        footer {
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            .download-btn { width: 100%; padding: 16px 20px; }
+            .instruction-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Анимированный фон -->
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">E</div>
+            Elviks
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <h1>Общайся без границ</h1>
+        <p>Современный и безопасный мессенджер для твоих самых важных разговоров. Скачай приложение для Windows и будь на связи всегда.</p>
+        
+        <!-- Кнопка скачивания. ЗАМЕНИ ССЫЛКУ НИЖЕ НА СВОЙ ФАЙЛ -->
+        <a href="MauiApp1_1.1.2.0_x64.msix" download class="download-btn">
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Скачать для Windows
+        </a>
+        <div class="version-info">Версия 1.1.2.0 • Windows 10/11 (64-bit)</div>
+    </section>
+
+    <!-- Инструкция -->
+    <div class="instruction-card">
+        <h2>📦 Как установить</h2>
+        <ol>
+            <li>Нажми на кнопку <b>«Скачать для Windows»</b> выше и дождись загрузки файла.</li>
+            <li>Открой скачанный файл <b>.msix</b> двойным кликом.</li>
+            <li>Windows может показать синее окно <b>«Система Windows защитила ваш компьютер»</b>.</li>
+            <li>Нажми <b>«Подробнее»</b> → <b>«Все равно установить»</b>. Это нормально для новых приложений.</li>
+            <li>Готово! Ищи <b>Elviks</b> в меню «Пуск».</li>
+        </ol>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2026 Elviks. Все права защищены.</p>
+        <p style="margin-top: 10px;">
+            <a href="https://losangeles2.github.io/privacy-policy/">Политика конфиденциальности</a> • 
+            <a href="https://losangeles2.github.io/privacy-policy/user-agreement.html">Пользовательское соглашение</a>
+        </p>
+    </footer>
+
+</body>
+</html>
